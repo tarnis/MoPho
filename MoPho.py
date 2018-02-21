@@ -2,7 +2,7 @@ from flask import Flask
 from flask import render_template, request
 import RobotCore
 import time
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='/static')
 RC = RobotCore.RobotCore()          # Create a new Robot Core object
 RC.Init()                           # Set the board up (checks the board is connected)
 RC.ResetEpo()                       # Reset the stop switch (EPO) state
@@ -22,7 +22,7 @@ TurnLeft = 0.0
 
 RC.SetServoPosition(1,0)
 RC.SetServoPosition(2,0)
-print "DOne"
+print "Done"
 a=1
 @app.route("/")
 def index():
